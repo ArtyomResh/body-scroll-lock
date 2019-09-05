@@ -70,7 +70,7 @@ const preventDefault = (rawEvent: HandleScrollEvent): boolean => {
 const setOverflowHidden = (options?: BodyScrollOptions) => {
   // Setting overflow on body/documentElement synchronously in Desktop Safari slows down
   // the responsiveness for some reason. Setting within a setTimeout fixes this.
-  setTimeout(() => {
+//   setTimeout(() => {
     // If previousBodyPaddingRight is already set, don't set it again.
     if (previousBodyPaddingRight === undefined) {
       const reserveScrollBarGap = !!options && options.reserveScrollBarGap === true;
@@ -87,13 +87,13 @@ const setOverflowHidden = (options?: BodyScrollOptions) => {
       previousBodyOverflowSetting = document.body.style.overflow;
       document.body.style.overflow = 'hidden';
     }
-  });
+//   });
 };
 
 const restoreOverflowSetting = () => {
   // Setting overflow on body/documentElement synchronously in Desktop Safari slows down
   // the responsiveness for some reason. Setting within a setTimeout fixes this.
-  setTimeout(() => {
+//   setTimeout(() => {
     if (previousBodyPaddingRight !== undefined) {
       document.body.style.paddingRight = previousBodyPaddingRight;
 
@@ -109,7 +109,7 @@ const restoreOverflowSetting = () => {
       // so setOverflowHidden knows it can be set again.
       previousBodyOverflowSetting = undefined;
     }
-  });
+//   });
 };
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollHeight#Problems_and_solutions
